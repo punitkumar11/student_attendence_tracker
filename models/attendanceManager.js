@@ -7,21 +7,17 @@ const attendanceManagerSchema = mongoose.Schema({
         required: true,
         unique: true,
         trim: true,
-
     },
-
     password: {
-        type: string,
+        type: String,
         required: true,
     },
-
     role: {
-        type: string,
+        type: String,
         default: 'Attendance Manager',
         enum: ['Attendance Manager', 'Student'],
     }
 });
 
-const AttendanceManager = mongoose.model('Attendance Manager', attendanceManagerSchema );
-
+const AttendanceManager = mongoose.model('AttendanceManager', attendanceManagerSchema);
 module.exports = AttendanceManager;

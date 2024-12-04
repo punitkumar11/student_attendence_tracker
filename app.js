@@ -10,12 +10,15 @@ const swaggerDocument = YAML.load('./swagger.yaml');
 const authRoutes = require('./routes/authRoutes.js');
 
 
+
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
 //Serve the defination file
 app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use('/', authRoutes);
 
 
